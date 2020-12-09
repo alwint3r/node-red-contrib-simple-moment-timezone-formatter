@@ -1,0 +1,59 @@
+<script type="text/javascript">
+  RED.nodes.registerType('format-datetime', {
+    category: 'function',
+    color: '#a6bbcf',
+    defaults: {
+      name: {value:""},
+      outTimezone: {value:""},
+      format: {value:""},
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "file.png",
+    label: function() {
+      return this.name || "format datetime";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="format-datetime">
+  <div class="form-row">
+    <label for="node-input-name">Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-outTimezone">Output Timezone</label>
+    <input type="text" id="node-input-outTimezone" placeholder="Asia/Jakarta, 420, etc">
+  </div>
+  <div class="form-row">
+    <label for="node-input-format">Output Format</label>
+    <input type="text" id="node-input-format" placeholder="">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="format-datetime">
+  <p>A node that receives timestamp and convert it to a provided format with timezone name or UTC offset.</p>
+
+  <h3>Inputs</h3>
+  <dl class="message-properties">
+    <dt>payload
+      <span class="property-type">string | number</span>
+    </dt>
+
+    <dd>The payload should be a valid timestamp with ISO 8681 format or a number in millisecond (i.e output of Date.now())</dd>
+    
+    <dt>outTimezone
+      <span class="property-type">string | number</span>
+    </dt>
+
+    <dd>
+      Either a timezone name (i.e Asia/Jakarta) or an UTC offset (i.e 420 means UTC + 7 hours).
+      This property is available in the editor, but you can provide it as <code>msg.outTimezone</code> instead.
+    </dd>
+
+    <dt>Format
+      <span class="property-type">string</span>
+    </dt>
+
+    <dd>This config is not available in the message properties. See <a href="https://momentjs.com/docs/#/displaying/">https://momentjs.com/docs/#/displaying</a> to see the complete format</dd>
+</script>

@@ -1,0 +1,16 @@
+{
+  "name": "node-red-contrib-simple-moment-timezone-formatter",
+  "version": "1.0.0",
+  "description": "",
+  "node-red": {
+    "nodes": {
+      "format-datetime": "format-datetime.js"
+    }
+  },
+  "keywords": ["moment", "timezone", "formatter", "datetime"],
+  "author": "Alwin Arrasyid <alwin.ridd@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "moment-timezone": "^0.5.32"
+  }
+}
